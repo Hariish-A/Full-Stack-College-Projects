@@ -21,10 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $country = $_POST['country'];
     $zipcode = $_POST['zipcode'];
     $sex = isset($_POST['sex']) ? $_POST['sex'] : ''; 
-    $language = isset($_POST['language']) ? implode(',', $_POST['language']) : '';
+    // $language = isset($_POST['language']) ? implode(',', $_POST['language']) : '';
+    $language1 = isset($_POST['english']) ? $_POST['english'] : '';
+    $language2 = isset($_POST['nonenglish']) ? $_POST['nonenglish'] : '';
+
     $about = $_POST['about'];
 
-    $sql = "INSERT INTO user (userid, password, name, address, email, country, zipcode, sex, language, about) VALUES ('$userid', '$password', '$name', '$address', '$email', '$country', '$zipcode', '$sex', '$language', '$about')";
+    $sql = "INSERT INTO user (userid, password, name, address, email, country, zipcode, sex, language1, language2 , about) VALUES ('$userid', '$password', '$name', '$address', '$email', '$country', '$zipcode', '$sex', '$language1', '$language2', '$about')";
  
     if ($conn->query($sql) === TRUE) {
         echo "<div class='success'>New record created successfully</div>";

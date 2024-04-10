@@ -22,7 +22,8 @@ $sql = "CREATE TABLE user (
     country VARCHAR(20) NOT NULL,
     zipcode INT(6),
     sex VARCHAR(5),
-    language VARCHAR(20),
+    language1 VARCHAR(20),
+    language2 VARCHAR(20),
     about VARCHAR(200)
 )";
 
