@@ -3,9 +3,9 @@ echo "<link rel='stylesheet' type='text/css' href='styles.css'>";
 echo "<div class='code-container'>";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
-    $username = "admin";
+    $username = "root";
     $password = "";
-    $dbname = "data";
+    $dbname = "test";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sex = isset($_POST['sex']) ? $_POST['sex'] : ''; 
     $language = isset($_POST['language']) ? implode(',', $_POST['language']) : '';
     $about = $_POST['about'];
+
     $sql = "INSERT INTO user (userid, password, name, address, email, country, zipcode, sex, language, about) VALUES ('$userid', '$password', '$name', '$address', '$email', '$country', '$zipcode', '$sex', '$language', '$about')";
  
     if ($conn->query($sql) === TRUE) {

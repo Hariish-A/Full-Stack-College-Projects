@@ -4,7 +4,7 @@ echo "<div class='code-container'>";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "";
     $dbname = "test";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($product1 == 1) {
-        $sql1 = "INSERT INTO orders (first_name, last_name, email, phone_number, quantity, size, product_id) VALUES ('$fname', '$lname', '$email', '$phno', '$quantity1', '$size1', '$product1')";
+        $sql1 = "INSERT INTO orders (first_name, last_name, email, phone_number, quantity, size, order_id) VALUES ('$fname', '$lname', '$email', '$phno', '$quantity1', '$size1', '$product1')";
         if ($conn->query($sql1) === TRUE) {
             echo "<div class='success'>Success: Order Created Successfully for product 1</div><br>";
         } 
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($product2 == 2) {
-        $sql2 = "INSERT INTO orders (first_name, last_name, email, phone_number, quantity, size, product_id) VALUES ('$fname', '$lname', '$email', '$phno', '$quantity2', '$size2', '$product2')";
+        $sql2 = "INSERT INTO orders (first_name, last_name, email, phone_number, quantity, size, order_id) VALUES ('$fname', '$lname', '$email', '$phno', '$quantity2', '$size2', '$product2')";
         if ($conn->query($sql2) === TRUE) {
             echo "<div class='success'>Success: Order Created Successfully for product 2</div>";
         } 
