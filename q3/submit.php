@@ -2,7 +2,7 @@
 // Establish database connection
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "test";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,7 +22,7 @@ $special_message = $_POST['special_message'];
 $address = $_POST['address'];
 
 // Insert data into orders table
-$sql = "INSERT INTO orders3 (name, email, phone_number, cake_type, quantity, special_message, address) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO orders (name, email, phone_number, cake_type, quantity, special_message, address) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssiss", $name, $email, $phone, $cake_type, $quantity, $special_message, $address);
 
