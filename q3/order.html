@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        // Regular expressions for validation
+        var nameRegex = /^[a-zA-Z\s]+$/;
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var phoneRegex = /^[0-9]{10}$/;
+        var quantityRegex = /^[1-9]$/;
+
+        // Function to validate form fields
+        function validateForm() {
+            var isValid = true;
+
+            // Validate name
+            var nameField = document.getElementById("name");
+            if (!nameRegex.test(nameField.value)) {
+                nameField.style.border = "2px solid red";
+                isValid = false;
+            } else {
+                nameField.style.border = "2px solid green";
+            }
+
+            // Validate email
+            var emailField = document.getElementById("email");
+            if (!emailRegex.test(emailField.value)) {
+                emailField.style.border = "2px solid red";
+                isValid = false;
+            } else {
+                emailField.style.border = "2px solid green";
+            }
+
+            // Validate phone number
+            var phoneField = document.getElementById("phone");
+            if (!phoneRegex.test(phoneField.value)) {
+                phoneField.style.border = "2px solid red";
+                isValid = false;
+            } else {
+                phoneField.style.border = "2px solid green";
+            }
+
+            // Validate cake type
+            var cakeTypeField = document.getElementById("cake_type");
+            if (cakeTypeField.value === "") {
+                cakeTypeField.style.border = "2px solid red";
+                isValid = false;
+            } else {
+                cakeTypeField.style.border = "2px solid green";
+            }
+
+            // Validate quantity
+            var quantityField = document.getElementById("quantity");
+            if (!quantityRegex.test(quantityField.value)) {
+                quantityField.style.border = "2px solid red";
+                isValid = false;
+            } else {
+                quantityField.style.border = "2px solid green";
+            }
+
+            // Validate address
+            var addressField = document.getElementById("address");
+            if (addressField.value === "") {
+                addressField.style.border = "2px solid red";
+                isValid = false;
+            } else {
+                addressField.style.border = "2px solid green";
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Order Form</h2>
+        <form action="submit.php" method="POST" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="cake_type">Cake Type:</label>
+            <select id="cake_type" name="cake_type">
+                <option value="">Select Cake Type</option>
+                <option value="cake1">Chocolate Cake</option>
+                <option value="cake2">Black Forest Cake</option>
+                <option value="cake3">Strawberry Cake</option>
+                <option value="cake3">Red Velvet Cake</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10">
+
+            <label for="special_message">Special Message:</label>
+            <textarea id="special_message" name="special_message"></textarea>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" ></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
